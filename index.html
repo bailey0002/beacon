@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="light dark">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Beacon">
+    <link rel="apple-touch-icon" href="public/assets/beacontouchicon.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='6' fill='%23CAA9B1'/%3E%3Ccircle cx='40' cy='40' r='14' stroke='%23CAA9B1' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='24' stroke='%23D4B8BF' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='40' cy='40' r='34' stroke='%23E0C9CF' stroke-width='1' fill='none'/%3E%3C/svg%3E">
+    <title>Beacon | Cadencia | Grey Stratum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/beacon-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-background"></div>
+        
+        <!-- Setup Screen -->
+        <div id="setup-screen" class="setup-container">
+            <div class="setup-beacon">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="6" fill="#CAA9B1"/>
+                    <circle class="beacon-r1" cx="40" cy="40" r="14" stroke="#CAA9B1" stroke-width="2" fill="none"/>
+                    <circle class="beacon-r2" cx="40" cy="40" r="24" stroke="#D4B8BF" stroke-width="1.5" fill="none"/>
+                    <circle class="beacon-r3" cx="40" cy="40" r="34" stroke="#E0C9CF" stroke-width="1" fill="none"/>
+                </svg>
+            </div>
+            <h1 class="setup-title">Beacon</h1>
+            <p class="setup-subtitle">A 52-week Bible study journey for married couples. Enter your names to begin.</p>
+            <div class="form-group">
+                <label class="form-label">Partner 1</label>
+                <input type="text" class="form-input" id="partner1-name" placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Partner 2</label>
+                <input type="text" class="form-input" id="partner2-name" placeholder="First name">
+            </div>
+            <button class="btn btn-primary btn-lg btn-block mt-lg" id="start-journey-btn">[ Begin Journey ]</button>
+            <p class="setup-protocol">[ Cadencia · Protocol 003 · Grey Stratum ]</p>
+        </div>
+        
+        <!-- Main Application -->
+        <div id="main-app" style="display: none;">
+            <header class="header">
+                <div class="header-top">
+                    <a href="https://www.greystratum.com/protocols/cadencia.html" class="back-to-parent">← Back to Cadencia</a>
+                </div>
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-beacon">
+                            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="6" fill="#CAA9B1"/>
+                                <circle class="beacon-r1" cx="40" cy="40" r="14" stroke="#CAA9B1" stroke-width="2" fill="none"/>
+                                <circle class="beacon-r2" cx="40" cy="40" r="24" stroke="#D4B8BF" stroke-width="1.5" fill="none"/>
+                                <circle class="beacon-r3" cx="40" cy="40" r="34" stroke="#E0C9CF" stroke-width="1" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">Beacon</span>
+                            <span class="logo-protocol">[ Cadencia ]</span>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                            <span class="theme-label" id="themeLabel">[ LUX ]</span>
+                            <div class="theme-indicator">
+                                <div class="gradus-bar"></div>
+                                <div class="gradus-bar"></div>
+                                <div class="gradus-bar"></div>
+                            </div>
+                        </div>
+                        <a href="public/assets/beacon_user_guide.pdf" target="_blank" class="help-link" title="User Guide">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="public/assets/beacon_companion_guide.pdf" target="_blank" class="help-link" title="Companion Guide">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="main-content">
+                <!-- Dashboard View -->
+                <section id="view-dashboard" class="view active">
+                    <div class="couple-card">
+                        <div class="couple-avatars">
+                            <div class="avatar" id="avatar1">M</div>
+                            <div class="avatar" id="avatar2">S</div>
+                        </div>
+                        <div class="couple-info">
+                            <div class="couple-names" id="couple-names">Mark & Sarah</div>
+                            <div class="couple-status">Covenant Journey · Week <span id="current-week-num">1</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="week-card" id="week-card">
+                        <div class="week-card-label">WEEK <span id="wk-num">1</span> OF 52</div>
+                        <div class="week-card-title" id="wk-title">God's Design for Marriage</div>
+                        <div class="week-card-theme" id="wk-theme">Understanding Marriage as Divine Institution</div>
+                        <div class="week-card-progress" id="wk-dots"></div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-value" id="stat-streak">0</div><div class="stat-label">Streak</div></div>
+                        <div class="stat-card"><div class="stat-value" id="stat-weeks">0</div><div class="stat-label">Weeks</div></div>
+                        <div class="stat-card"><div class="stat-value" id="stat-entries">0</div><div class="stat-label">Entries</div></div>
+                    </div>
+                    
+                    <div class="section-label">[ Journey Progress ]</div>
+                    <div class="calendar-grid" id="calendar-grid"></div>
+                </section>
+                
+                <!-- Week View -->
+                <section id="view-week" class="view">
+                    <button class="back-btn" id="week-back-btn">← Revert</button>
+                    <div class="section-label">WEEK <span id="week-view-num">1</span></div>
+                    <h1 class="page-title" id="week-view-title">God's Design for Marriage</h1>
+                    <p class="page-subtitle" id="week-view-theme">Understanding Marriage as Divine Institution</p>
+                    <div class="day-tabs" id="day-tabs"></div>
+                    <div id="day-content"></div>
+                    <button class="btn btn-success btn-block btn-lg mt-lg" id="complete-day-btn">[ Mark Day Complete ]</button>
+                </section>
+                
+                <!-- Progress View -->
+                <section id="view-progress" class="view">
+                    <h1 class="page-title">Progressio</h1>
+                    <p class="page-subtitle">Your path through the 8-week pilot</p>
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-value" id="prog-streak">0</div><div class="stat-label">Streak</div></div>
+                        <div class="stat-card"><div class="stat-value" id="prog-weeks">0</div><div class="stat-label">Complete</div></div>
+                        <div class="stat-card"><div class="stat-value" id="prog-days">0</div><div class="stat-label">Days</div></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title" style="margin-bottom:1rem;">Week by Week</div>
+                        <div id="progress-weeks-list"></div>
+                    </div>
+                    <button class="btn btn-primary btn-block mt-lg" id="export-entries-btn">[ Export All Entries ]</button>
+                    <button class="btn btn-ghost btn-block mt-lg" id="reset-journey-btn" style="color: var(--text-muted); font-size: 0.625rem;">[ Reset Journey ]</button>
+                </section>
+                
+                <!-- Journal View -->
+                <section id="view-journal" class="view">
+                    <h1 class="page-title">Journal</h1>
+                    <p class="page-subtitle">Your reflections and Scripture study</p>
+                    
+                    <!-- Journal Filter Tabs (New for Enhanced Journal) -->
+                    <div class="journal-filters" id="journal-filters">
+                        <button class="filter-tab active" data-filter="all">All</button>
+                        <button class="filter-tab" data-filter="reflection">Reflections</button>
+                        <button class="filter-tab" data-filter="free">Free</button>
+                    </div>
+                    
+                    <div class="journal-action-card" id="new-entry-card">
+                        <div class="journal-action-icon">
+                            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="18" width="4" height="8" rx="1" fill="#CAA9B1" opacity="0.5"/>
+                                <rect x="14" y="12" width="4" height="14" rx="1" fill="#CAA9B1" opacity="0.75"/>
+                                <rect x="22" y="6" width="4" height="20" rx="1" fill="#CAA9B1"/>
+                            </svg>
+                        </div>
+                        <div class="journal-action-text">
+                            <div class="journal-action-title">New Entry</div>
+                            <div class="journal-action-desc">Write freely about what's on your heart</div>
+                        </div>
+                    </div>
+                    
+                    <div class="journal-action-card" id="verse-lookup-card">
+                        <div class="journal-action-icon">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="#5BA4B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 25.5A3.5 3.5 0 0 1 8.5 22H27"/>
+                                <path d="M8.5 4H27v24H8.5A3.5 3.5 0 0 1 5 24.5v-17A3.5 3.5 0 0 1 8.5 4z"/>
+                            </svg>
+                        </div>
+                        <div class="journal-action-text">
+                            <div class="journal-action-title">Look Up Verse</div>
+                            <div class="journal-action-desc">Search by reference (e.g., John 3:16)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="journal-action-card" id="topic-search-card">
+                        <div class="journal-action-icon">
+                            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="14" r="3" fill="#5BA4B5"/>
+                                <circle cx="14" cy="14" r="6" stroke="#5BA4B5" stroke-width="1.5" fill="none" opacity="0.7"/>
+                                <circle cx="14" cy="14" r="9" stroke="#5BA4B5" stroke-width="1" fill="none" opacity="0.4"/>
+                                <line x1="21" y1="21" x2="27" y2="27" stroke="#5BA4B5" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="journal-action-text">
+                            <div class="journal-action-title">Search by Topic</div>
+                            <div class="journal-action-desc">Find verses about love, faith, marriage...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-label" style="margin-top: 1.5rem;">[ Recent Entries ]</div>
+                    <div id="journal-entries-list"></div>
+                </section>
+            </main>
+            
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <button class="nav-item active" id="nav-dashboard" data-nav="dashboard">
+                    <div class="nav-icon">
+                        <div class="gradus-bar"></div>
+                        <div class="gradus-bar"></div>
+                        <div class="gradus-bar"></div>
+                    </div>
+                    <span>Home</span>
+                </button>
+                <button class="nav-item" id="nav-journal" data-nav="journal">
+                    <div class="nav-icon-book">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <span>Journal</span>
+                </button>
+                <button class="nav-item" id="nav-progress" data-nav="progress">
+                    <div class="nav-icon">
+                        <div class="gradus-bar"></div>
+                        <div class="gradus-bar"></div>
+                        <div class="gradus-bar"></div>
+                    </div>
+                    <span>Progressio</span>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Confirmation Modal -->
+        <div class="modal-overlay" id="modal-complete">
+            <div class="modal">
+                <div class="modal-icon">
+                    <div class="gradus-confirm">
+                        <div class="gradus-bar"></div>
+                        <div class="gradus-bar"></div>
+                        <div class="gradus-bar"></div>
+                    </div>
+                </div>
+                <h3 class="modal-title" id="modal-title">Confirmed</h3>
+                <p class="modal-message" id="modal-message">Great work continuing your journey together.</p>
+                <button class="btn btn-primary" id="modal-dismiss-btn">[ Dismiss ]</button>
+            </div>
+        </div>
+
+        <!-- Journal Entry Modal (Full Screen) -->
+        <div class="journal-modal-overlay" id="journal-modal">
+            <div class="journal-modal-header">
+                <button class="close-btn" id="journal-modal-cancel">Cancel</button>
+                <span class="esv-modal-title" id="journal-modal-label">Journal Entry</span>
+                <button class="save-btn" id="journal-modal-save">Save</button>
+            </div>
+            <div class="journal-modal-content">
+                <div class="journal-modal-prompt">
+                    <div class="prompt-label">Prompt</div>
+                    <div class="prompt-text" id="journal-modal-prompt-text"></div>
+                </div>
+                <textarea class="journal-modal-textarea" id="journal-modal-textarea" placeholder="Write your thoughts..."></textarea>
+                <div class="journal-modal-meta" id="journal-modal-meta"></div>
+            </div>
+        </div>
+        
+        <!-- ESV Verse Lookup Modal -->
+        <div class="esv-modal-overlay" id="esv-lookup-modal">
+            <div class="esv-modal-header">
+                <button class="close-btn" id="esv-lookup-cancel">Cancel</button>
+                <span class="esv-modal-title">Look Up Verse</span>
+                <div style="width:50px;"></div>
+            </div>
+            <div class="esv-modal-content">
+                <div class="esv-input-group">
+                    <input type="text" class="esv-input" id="esv-lookup-input" placeholder="e.g., John 3:16 or Romans 8:28">
+                    <button class="esv-search-btn" id="esv-lookup-btn">Go</button>
+                </div>
+                <div class="esv-results" id="esv-lookup-results"></div>
+            </div>
+        </div>
+        
+        <!-- ESV Topic Search Modal -->
+        <div class="esv-modal-overlay" id="esv-search-modal">
+            <div class="esv-modal-header">
+                <button class="close-btn" id="esv-search-cancel">Cancel</button>
+                <span class="esv-modal-title">Search by Topic</span>
+                <div style="width:50px;"></div>
+            </div>
+            <div class="esv-modal-content">
+                <div class="esv-input-group">
+                    <input type="text" class="esv-input" id="esv-search-input" placeholder="e.g., love, faith, marriage, forgiveness">
+                    <button class="esv-search-btn" id="esv-search-btn">Search</button>
+                </div>
+                <div class="esv-results" id="esv-search-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ES6 Module Scripts -->
+    <script type="module">
+        import { initApp } from './src/js/beacon-app.js';
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

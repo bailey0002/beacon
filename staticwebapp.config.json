@@ -1,0 +1,22 @@
+{
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": ["/src/css/*", "/src/js/*", "/public/assets/*"]
+    },
+    "mimeTypes": {
+        ".js": "text/javascript",
+        ".css": "text/css"
+    },
+    "globalHeaders": {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "X-Content-Type-Options": "nosniff"
+    },
+    "routes": [
+        {
+            "route": "/src/js/*.js",
+            "headers": {
+                "Content-Type": "text/javascript; charset=utf-8"
+            }
+        }
+    ]
+}
